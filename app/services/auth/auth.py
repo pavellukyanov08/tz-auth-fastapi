@@ -2,7 +2,6 @@ import logging
 from uuid import UUID
 
 from app.common.adapters import PostgresStorageAdapter
-# from app.adapters import RedisAdapter
 
 from app.common.schemas import MessageDTO
 from app.deps import (
@@ -22,11 +21,9 @@ class AuthService:
         self,
         *,
         logger: logging.Logger,
-        # redis_adapter: RedisAdapter,
         postgres_adapter: PostgresStorageAdapter
     ) -> None:
         self._logger = logger
-        # self._redis_adapter = redis_adapter
         self._postgres_adapter = postgres_adapter
 
     @staticmethod
