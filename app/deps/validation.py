@@ -38,8 +38,6 @@ def validate_token_type(
     payload: dict,
     token_type: TokenTypeEnum,
 ) -> bool:
-    print(f"payload token type: {payload}")
-    print(f"validate token type: {payload.get('token_type')}")
     if payload.get("token_type") == token_type:
         return True
     raise HTTPException(

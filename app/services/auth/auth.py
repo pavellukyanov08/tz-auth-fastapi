@@ -55,6 +55,11 @@ class AuthService:
         refresh_token = create_refresh_token(
             user_data=user_data
         )
+        result = TokenPair(
+            access_token=access_token,
+            refresh_token=refresh_token,
+            token_type=TokenTypeEnum.BEARER
+        )
         return TokenPair(
             access_token=access_token,
             refresh_token=refresh_token,

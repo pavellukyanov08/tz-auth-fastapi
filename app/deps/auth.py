@@ -68,7 +68,6 @@ async def get_current_user_for_refresh(
     payload: dict = Depends(get_current_token_payload),
     postgres: CommonPostgresDep
 ) -> UserDTO:
-    print(f"get_current_user_for_refresh payload: {payload}")
     validate_token_type(
         payload=payload,
         token_type=TokenTypeEnum.REFRESH,

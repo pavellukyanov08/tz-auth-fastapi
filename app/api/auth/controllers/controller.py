@@ -37,6 +37,7 @@ async def login_swagger(
         email=data.username,
         password=data.password
     )
+
     return await service.login(user_data=auth_data)
 
 
@@ -45,7 +46,7 @@ async def refresh_token(
     service: AuthServiceDep,
     current_user: CurrentUserRefreshDep
 ) -> RefreshToken:
-    print(f"current user (controller): {current_user}")
+
     return service.refresh_token(current_user=current_user)
 
 
