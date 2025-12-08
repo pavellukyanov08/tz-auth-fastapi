@@ -113,10 +113,16 @@ class UserService:
              user_email=data.email,
          )
          if user_by_email:
-             raise ValueError("Пользователь с такой почтой уже существует")
+             raise HTTPException(
+                 status_code=400,
+                 detail="User with this email already exists",
+             )
 
          if data.hashed_password != data.confirm_hashed_password:
-             raise ValueError("Пароли не совпадают")
+             raise HTTPException(
+                 status_code=400,
+                 detail="Passwords do not match",
+             )
 
          user_model = self._get_user_model(
              user_model=user_by_email, user_data=data

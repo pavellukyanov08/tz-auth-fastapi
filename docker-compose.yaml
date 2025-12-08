@@ -4,7 +4,7 @@ services:
     build:
       context: .
     ports:
-      - "9999:8000"
+      - "9999:80"
     depends_on:
       - db
     restart: always
